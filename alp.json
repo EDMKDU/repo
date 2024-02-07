@@ -1,0 +1,17 @@
+ce.extend = ce.fn.extend = function() {
+    var e, t, n, r, i, o, a = arguments[0] || {}, s = 1, u = arguments.length, l = !1;
+    for ("boolean" == typeof a && (l = a,
+    a = arguments[s] || {},
+    s++),
+    "object" == typeof a || v(a) || (a = {}),
+    s === u && (a = this,
+    s--); s < u; s++)
+        if (null != (e = arguments[s]))
+            for (t in e)
+                r = e[t],
+                "__proto__" !== t && a !== r && (l && r && (ce.isPlainObject(r) || (i = Array.isArray(r))) ? (n = a[t],
+                o = i && !Array.isArray(n) ? [] : i || ce.isPlainObject(n) ? n : {},
+                i = !1,
+                a[t] = ce.extend(l, o, r)) : void 0 !== r && (a[t] = r));
+    return a
+}
